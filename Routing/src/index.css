@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    
+}
+body{
+    background-color: #D9AFD9;
+background-image: linear-gradient(90deg, #D9AFD9 0%, #97D9E1 100%);
+text-align: center;
+
+}
+.active{
+    color: red;
+}

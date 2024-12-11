@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+}
+
+.Navlinks{
+    display: flex;
+    padding: 5px;
+}
+.navitem{
+    padding: 5px;
+}
+.btn{
+    width: 100px;
+    padding: .26rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
