@@ -3,7 +3,7 @@ import Home from "./pages/Home"
 import Contact from "./pages/contact"
 import Services from "./pages/services"
 import About from "./pages/about"
-import PageNotFoud from './404Page'
+import PageNotFoud from './pages/PageNotFound'
 import Navbar from './components/Navbar'
 import { Routes,Route } from 'react-router'
 
