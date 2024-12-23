@@ -13,3 +13,12 @@ Rules
     Hooks Shouldnt be Called inside loops ,functions ,conditional statement 
     Hooks must be Called in the Same-order
     Hooks shouldnt be used in class-components
+
+REST & Spread Opertaor 
+let Robo={
+    name:"chitti",
+    momoery:1,
+    skin:white
+}
+const {name,...r}=Robo
+const robo1={...Robo,eye:blue,...Robo}
