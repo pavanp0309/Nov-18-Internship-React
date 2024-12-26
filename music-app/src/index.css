@@ -1,25 +1,118 @@
+/* Reset and Root Variables */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-:root{
-  --primary-color:rgb(0, 0, 0);
-  --secondary-color:white;
-  --icon-color:red;
-  --dark-icon-color:white;
+
+:root {
+  --primary-color: rgb(0, 0, 0);
+  --secondary-color: white;
+  --icon-color: red;
+  --dark-icon-color: white;
+
+  /* Additional variables for consistent dark mode */
+  --light-bg: #d9afd9;
+  --dark-bg: var(--primary-color);
+  --light-gradient: linear-gradient(90deg, #d9afd9 0%, #97d9e1 100%);
+  --dark-gradient: linear-gradient(90deg, #1a1a1a 0%, #333 100%);
 }
+
+/* Global Body Styling */
 body {
-  background-color: #d9afd9;
-  background-image: linear-gradient(90deg, #d9afd9 0%, #97d9e1 100%);
+  background-color: var(--light-bg);
+  background-image: var(--light-gradient);
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark-mode{
-  background-color:var(--primary-color);
-   color:var(--secondary-color);
-
+.dark-mode {
+  background-color: var(--dark-bg);
+  background-image: var(--dark-gradient);
+  color: var(--secondary-color);
 }
-.album>img{
-  width:100%;
+
+/* Header Styling */
+.header {
+  top: 0px;
+ 
+  z-index: 1000;
+  background-color: var(--light-bg);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .header {
+  background-color: var(--dark-bg);
+}
+
+/* Albums Styling */
+.albums {
+  top:90px;
+  z-index: 100;
+  overflow-y: scroll;
+  height: 70vh;
+  scroll-behavior: smooth;
+  background-color: var(--light-bg);
+  transition: background-color 0.3s ease;
+  margin: 2px 0px;
+}
+
+.dark-mode .albums {
+  background-color: var(--dark-bg);
+}
+
+.albums::-webkit-scrollbar {
+  width: 8px;
+}
+
+.albums::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.albums::-webkit-scrollbar-thumb {
+  background-color: var(--icon-color);
+  border-radius: 8px;
+}
+
+.dark-mode .albums::-webkit-scrollbar-thumb {
+  background-color: var(--dark-icon-color);
+}
+
+/* Player Styling */
+.player {
+  bottom: 0px;
+  z-index: 1000;
+  background-color: var(--light-bg);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .player {
+  background-color: var(--dark-bg);
+}
+
+/* Album Image */
+.album > img {
+  width: 100%;
   height: 300px;
+}
+
+.banner-music-img {
+  width: 100%;
+  height: 300px;
+}
+
+/* Audio Player */
+.audio-player {
+  background-color: transparent;
+}
+
+/*  Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .albums {
+    height: 75vh; 
+    padding: 3px; 
+    top: 100px; 
+  }
+
+
 }

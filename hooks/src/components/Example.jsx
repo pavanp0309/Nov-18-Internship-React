@@ -36,8 +36,6 @@ const Example = () => {
 
 
 
-
-
         {/* <h1>{incre}</h1>
         <button onClick={handleIncrement}>increment</button>
         <button>Decrement</button>

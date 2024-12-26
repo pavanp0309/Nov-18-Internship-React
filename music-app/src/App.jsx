@@ -8,7 +8,7 @@ const App = () => {
     setDark(!dark);
   }
   return (
-    <div  className={dark?"dark-mode":"light-mode"}>
+    <div  className={dark?"dark-mode":""}>
       <MusicApp 
       onHandleDark={handleDarkMode}
       mode={dark}/>
