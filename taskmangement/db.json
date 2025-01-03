@@ -1,29 +1,22 @@
 {
-    "tasks": [
-      {
-        "id": "96e0",
-        "text": "sdd",
-        "completed": false,
-        "priority": "Medium"
-      },
-      {
-        "id": "d5b1",
-        "text": "hhhh",
-        "completed": false,
-        "priority": "Medium"
-      },
-      {
-        "id": "d5b1",
-        "text": "hhhh",
-        "completed": false,
-        "priority": "Medium"
-      },
-      {
-        "id": "d5b1",
-        "text": "hhhh",
-        "completed": false,
-        "priority": "Medium"
-      }
-    
-    ]
-  }
+  "tasks": [
+    {
+      "id": "d5b1",
+      "text": "hhhh",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "d5b1",
+      "text": "hhhh",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "69a2",
+      "text": "sss",
+      "completed": false,
+      "priority": "High"
+    }
+  ]
+}

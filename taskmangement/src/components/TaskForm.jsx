@@ -1,12 +1,13 @@
 import {useState} from "react";
 
-const TaskForm = () => {
+const TaskForm = ({onaddTask}) => {
   let [newtask,setNewTask]=useState('')
   let [priority,setPriority]=useState('')
 
   // function to Handle the Task 
   function handleTask(){
     if(newtask.trim()!==""){
+      onaddTask(newtask,priority)
       setNewTask("")
       setPriority("Medium")
     }

@@ -1,9 +1,14 @@
 import { useState } from "react";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task,oneditTask,ondeleteTask }) => {
   const [isEditable, setIsEdiTable] = useState(false);
   let [oldtask, setOldTask] = useState(task.text);
   let [priority, setPriority] = useState(task.priority);
+
+  function handlesave(){
+    oneditTask(task.id,oldtask,priority)
+    setIsEdiTable(false)
+  }
 
   return (
     <>
@@ -36,7 +41,7 @@ const TaskItem = ({ task }) => {
               </div>
               {/* add button */}
               <div className="col-sm-3 col-md-2 col-lg-2">
-                <button className="btn btn-success" >Save</button>
+                <button className="btn btn-success" onClick={()=>handlesave()}>Save</button>
                 <button className="btn btn-danger" onClick={()=>setIsEdiTable(false)}>cancel</button>
               </div>
             </div>
@@ -46,8 +51,9 @@ const TaskItem = ({ task }) => {
             <p>{task.text}</p>
             {/* container for edit and delete functionlaities */}
             <div className="edit-feature">
+              <span className="text-success">{task.priority}</span>
               <button className="btn btn-outline-success mx-1 rounded" onClick={()=>setIsEdiTable(true)}> ✒</button>
-              <button className="btn btn-outline-danger rounded">⛔</button>
+              <button className="btn btn-outline-danger rounded" onClick={()=>ondeleteTask(task.id)}>⛔</button>
             </div>
           </div>
         )}
