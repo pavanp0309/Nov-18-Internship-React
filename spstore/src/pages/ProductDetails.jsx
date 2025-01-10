@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import axios from "axios";
+import { useCart } from '../store/StoreContext';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
   // getting the id from Products
@@ -33,6 +35,15 @@ const ProductDetails = () => {
     <div class="rect5"></div>
   </div>)
 
+    let {dispatch}=useCart()
+  
+    // handling the AddTocart Functionality
+    function handleAddtocart(product){
+     dispatch({type:"ADD_TO_CART",payload:product})
+     toast.success("added item to cart")
+    }
+    
+
   return (
   
       <div class="card mb-3" >
@@ -45,7 +56,7 @@ const ProductDetails = () => {
         <h5 class="card-title">{title}</h5>
         <p class="card-text">{price}</p>
         <p class="card-text">{description}</p>
-        <button className="btn btn-success">Addtocart</button>
+        <button className="btn btn-success" onClick={()=>handleAddtocart(products)}>Addtocart</button>
       </div>
     </div>
   </div>

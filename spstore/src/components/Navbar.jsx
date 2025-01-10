@@ -23,6 +23,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink className="nav-link" to='/contact'>Contact</NavLink>
           </li>
+      
 
         
         </ul>
@@ -30,6 +31,12 @@ const Navbar = () => {
           <input className="form-control me-sm-2" type="search" placeholder="Search" />
           <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
+       {/* cart Links */}
+        <ul className='navbar-nav ms-auto'>
+        <li className="nav-item">
+            <NavLink className="nav-link" to='/cart'>🛒</NavLink>
+        </li>
+        </ul>
       </div>
     </div>
   </nav>
