@@ -1,0 +1,5 @@
+.card{
+  background-image: url('./assets/download.jpg');
+  background-size: contain;
+  background-position: center center;
+}
