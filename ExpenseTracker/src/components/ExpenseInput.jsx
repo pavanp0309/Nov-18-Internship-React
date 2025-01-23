@@ -20,18 +20,18 @@ const handleAdd=()=>{
         <div className='card p-3'>
             <div className="row">
                 <div className=" col-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" 
+                    <div className="form-floating mb-3">
+                        <input type="text" className="form-control" id="floatingInput" 
                         placeholder="enter the budget-name"
                         value={name}
                         onChange={(e)=>setName(e.target.value)} />
-                        <label for="floatingInput">Expense_Name</label>
+                        <label htmlFor="floatingInput">Expense_Name</label>
                     </div>
                 </div>
                 <div className=" col-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" value={category} onChange={(e)=>setCategory(e.target.value)}>
-                            <option selected>select the category</option>
+                    <div className="form-floating">
+                        <select className="form-select" id="floatingSelect" value={category} onChange={(e)=>setCategory(e.target.value)}>
+                            <option value="All">All</option>
                             <option value="Food">Food</option>
                             <option value="Entertaiment">Entertaiment </option>
                             <option value="Travel">Travel</option>
@@ -42,11 +42,11 @@ const handleAdd=()=>{
                     </div>
                 </div>
                 <div className=" col-12 col-sm-12 col-md-2 col-lg-2">
-                <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInput" 
+                <div className="form-floating mb-3">
+                        <input type="number" className="form-control" id="floatingInput" 
                         placeholder="enter the budget-price"
                         value={amount} onChange={(e)=>setAmount(e.target.value)} />
-                        <label for="floatingInput">COST</label>
+                        <label htmlFor="floatingInput">COST</label>
                     </div>
                 </div>
                 <div className=" col-12 col-sm-12 col-md-2 col-lg-2">

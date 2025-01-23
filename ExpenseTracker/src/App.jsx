@@ -1,26 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ExpenseInput from "./components/ExpenseInput";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseSummary from "./components/ExpenseSummary";
 import useExpensesManger from "./hooks/useExpenses";
+import useDebounce from "./hooks/useDebounce";
 
 const App = () => {
 
 
   // custom hook
-  let {budget,setBudget,addExpense}=useExpensesManger()
+  let {budget,setBudget,addExpense,expenses,totalExpeneses,filter,setFilter,setSearchQuery}=useExpensesManger()
+  
+  // state to hold the Search Tearm
+  const [searchTerm,setSearchTerm]=useState("")
+  let searchDebounce=useDebounce(searchTerm,300)
+  
+
+
+  // useEffect Hooks To handle The SideEffects
+  useEffect(()=>{
+     setSearchQuery(searchDebounce)
+  },[searchDebounce,setSearchQuery])
+
+
+
   return (
     <div className="container">
       {/* budget input start */}
-      <div class="form-floating my-3">
+      <div className="form-floating my-3">
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="budget"
-          
+          value={budget}
           onChange={(e) => setBudget(parseFloat(e.target.value)|| 0)}
         />
-        <label for="floatingInput">BUDGET</label>
+        <label htmlFor="floatingInput">BUDGET</label>
       </div>
       {/* budget input end */}
 
@@ -31,14 +46,18 @@ const App = () => {
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6">
             <div className="form-floating my-3">
-              <input type="text" className="form-control" id="search" value={""} placeholder="search.." onChange={() => 0}/>
-              <label for="search">Search</label>
+              <input type="text" className="form-control" id="search"
+               placeholder="search.." 
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}/>
+              <label htmlFor="search">Search</label>
             </div>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 my-auto">
             <div className="form-floating ">
-              <select className="form-select" id="floatingSelect" onChange={() => "select"}>
-                <option selected>select the category</option>
+              <select className="form-select" id="floatingSelect"
+               onChange={(e) => setFilter(e.target.value)}>
+                <option value="All">All</option>
                 <option value="Food">Food</option>
                 <option value="Entertaiment">Entertaiment </option>
                 <option value="Travel">Travel</option>
@@ -51,10 +70,10 @@ const App = () => {
       </div>
 
       {/* expenses list */}
-      <ExpenseList/>
+      <ExpenseList expenses={expenses}/>
 
       {/* expenses summary */}
-      <ExpenseSummary/>
+      <ExpenseSummary totalExpeneses={totalExpeneses} budget={budget}/>
     </div>
   );
 };
