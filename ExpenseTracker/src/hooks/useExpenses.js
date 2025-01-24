@@ -4,7 +4,7 @@ const useExpensesManger = (initialBudget = 1000) => {
   const [budget, setBudget] = useState(initialBudget); // used for Tracking the budget
   const [expenses, setExpenses] = useState([]); // used for Tracking the Expeneses dynamically
   const [searchQuery, setSearchQuery] = useState(""); //used for tracking the search values given by user
-  const [filter, setFilter] = useState("all"); //used for tracking the select dropdown filter
+  const [filter, setFilter] = useState("All"); //used for tracking the select dropdown filter
   //  usecallback hook to check weather user has entered the same expenses or not
   const addExpense = useCallback((name, category, amount) => {
     setExpenses((prev) => [

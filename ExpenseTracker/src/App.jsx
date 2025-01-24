@@ -9,7 +9,7 @@ const App = () => {
 
 
   // custom hook
-  let {budget,setBudget,addExpense,expenses,totalExpeneses,filter,setFilter,setSearchQuery}=useExpensesManger()
+  let {budget,setBudget,addExpense,expenses,totalExpeneses,filter,filterExpenses,setFilter,setSearchQuery}=useExpensesManger()
   
   // state to hold the Search Tearm
   const [searchTerm,setSearchTerm]=useState("")
@@ -70,7 +70,7 @@ const App = () => {
       </div>
 
       {/* expenses list */}
-      <ExpenseList expenses={expenses}/>
+      <ExpenseList expenses={filterExpenses}/>
 
       {/* expenses summary */}
       <ExpenseSummary totalExpeneses={totalExpeneses} budget={budget}/>
