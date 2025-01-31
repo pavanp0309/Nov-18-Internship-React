@@ -2,7 +2,8 @@ import React from 'react'
 import useCryptomarkets from '../../hooks/useCryptomarkets'
 import { Table } from "antd";
 import millify from "millify";
-
+import useCryptoHistory from '../../hooks/useCryptoHistory';
+import LineChart from '../graphs/LineChart';
 
 const CryptoTable = () => {
     let {coins,isloading}=useCryptomarkets()
@@ -69,15 +70,36 @@ const CryptoTable = () => {
           {
             title: 'Graph',
             dataIndex: 'uuid',
-            key:  'graph',
+            key:  'uuid',
             responsive:["xs","sm","md","lg","xl",'xxl'],
             align:"center",
-            render:()=>``
+            render:(coinId)=><HistoricalData data={coinId} />
           },
       ];
+
+//   function for Creating the Historical data 
+ let HistoricalData=({data})=>{
+      console.log("Hdata:",data)// data-here is uuid for coins
+      const {history,isloading,isError}=useCryptoHistory(data)
+      console.log("h:",history)
+      if(isloading){
+        return <h4>loading..</h4>
+      }
+      if(isError){
+        return <h4>isError...</h4>
+      }
+
+      return <LineChart  data={history}/>
+ }
+
+
+
+
   return (
-    <div className='container'>
+    <div className='container-fluid my-5'>
       <Table dataSource={coins} key={coins.uuid} bordered  columns={columns} loading={isloading} />
+    
+   
     </div>
   )
 }

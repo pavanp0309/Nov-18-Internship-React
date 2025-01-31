@@ -9,6 +9,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    scales,
   } from 'chart.js';
 
   ChartJS.register(
@@ -23,34 +24,54 @@ import {
 
 
   
-  const LineChart = () => {
+  const LineChart = ({data}) => {
+    console.log("ldata",data)
     const chartData = {
-        labels,
+        labels:data.map((item)=>new Date(item.timestamp*1000).toLocaleTimeString()),
         datasets: [
           {
-            label: 'Dataset 1',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },
-          {
-            label: 'Dataset 2',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            label: 'Price',
+            data: data.map((item) =>parseFloat(item.price) ),
+            borderColor:data.map((item) =>{
+              let price=parseFloat(item.price)
+              if(price<6.5)return "red"
+              if(price>6.5)return "green"
+              return "orange"
+            }),
+            backgroundColor:data.map((item) =>{
+              let price=parseFloat(item.price)
+              if(price<6.5)return "red"
+              if(price>6.5)return "green"
+               return "blue"
+            }),
+            fill:false,
+            pointRadius:0,
+            borderWidth:2,
+            lineTension:.1
           },
         ],
       };
       const options = {
         responsive: true,
         plugins: {
-          title: {
-            display: true,
-            text: 'Chart.js Line Chart',
+          legend: {
+            display: false, 
           },
         },
+        scales:{
+          x:{
+            display:false,
+          },
+          y:{
+            display:false
+          }
+        }
       };
-    return <Line options={options} data={chartData} />;
+    return (
+      <div style={{width:"100%",height:50}}>
+        <Line  options={options} data={chartData} />
+      </div>
+    )
   }
   
   export default LineChart
