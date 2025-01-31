@@ -1,0 +1,24 @@
+React 
+Routing
+Hooks 
+redux
+rtk 
+charts & graphs   -chart.js  & re-charts
+env 
+antd-tailwind 
+firebase -login(last-consider)
+deployment 
+
+
+3rd party-libraries :
+boostrap :npm i bootstrap@5.3.3
+boostrap-icons:npm i bootstrap-icons
+react-router-dom :npm i react-router-dom
+react-tostify:npm i react-toastify
+redux& rtk:npm install @reduxjs/toolkit react-redux
+axios : npm i axios
+chart.js:npm install chart.js
+re-charts npm install recharts
+dotenv:npm i dotenv
+millify:npm i millify
+firebase

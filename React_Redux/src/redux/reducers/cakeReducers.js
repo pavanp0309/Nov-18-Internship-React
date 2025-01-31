@@ -1,8 +1,12 @@
-import { BUY_CHIPS } from "./actionTypes";
+import { BUY_CHIPS,BUY_PENS } from "../actions/actionTypes"
 
 // Intial State Of an app
 let initialState={
     cakes:100
+}
+
+let PensinitialState={
+    pens:100
 }
 
 
@@ -17,5 +21,20 @@ const CakeReducer=(state=initialState,action)=>{
             return state
     }
 }
+
+
+
+
+export const PensReducer=(state=PensinitialState,action)=>{
+    switch (action.type) {
+        case BUY_PENS:
+            return {
+                ...state,pens:state.pens-1
+            }
+        default:
+            return state
+    }
+}
+
 
 export default CakeReducer
