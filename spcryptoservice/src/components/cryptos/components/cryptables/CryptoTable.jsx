@@ -79,9 +79,9 @@ const CryptoTable = () => {
 
 //   function for Creating the Historical data 
  let HistoricalData=({data})=>{
-      console.log("Hdata:",data)// data-here is uuid for coins
+      // console.log("Hdata:",data)// data-here is uuid for coins
       const {history,isloading,isError}=useCryptoHistory(data)
-      console.log("h:",history)
+      // console.log("h:",history)
       if(isloading){
         return <h4>loading..</h4>
       }
