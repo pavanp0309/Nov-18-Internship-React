@@ -2,39 +2,33 @@ import React from 'react'
 import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Scatter, ResponsiveContainer,
   } from 'recharts';
 
-const LineBarChart = () => {
+const LineBarChart = ({data}) => {
+  console.log(data)
     //  preparing the data for the chart
- let CoinHistory=history.map((point)=>(
+ let CoinHistory=data?.map((point)=>(
     {
-        date:new Date(point.timestamp*1000).toLocaleDateString(),
-        price:point.price
+        date:new Date(point.timestamp*1000).toLocaleString(),
+        price:parseFloat(point?.price)
     }
- ))
+ )).slice(0,50) || []
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-    <ComposedChart
-      width={500}
-      height={400}
-      data={data}
-      margin={{
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 20,
-      }}
-    >
-      <CartesianGrid stroke="#f5f5f5" />
-      <XAxis dataKey="name" scale="band" />
-      <YAxis />
+<div style={{width:"100%",height:"400px"}}>
+<ResponsiveContainer width="100%" height="100%">
+    <ComposedChart width={500} height={400} data={CoinHistory}
+      margin={{top: 20,right: 0,bottom: 20,left: 0,}}>
+      {/* <CartesianGrid stroke="#f5f5f5" /> */}
+      {/* <XAxis dataKey="price" scale="band" /> */}
+      {/* <YAxis /> */}
       <Tooltip />
-      <Legend />
-      <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-      <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-      <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-      <Scatter dataKey="cnt" fill="red" />
+      {/* <Legend /> */}
+      <Area type="monotone" dataKey="price" fill="#8884d8" stroke="#8884d8" />
+      <Bar dataKey="price" barSize={50} fill="#413ea0" />
+      <Line type="monotone" dataKey="price" stroke="#ff7300" />
+      <Scatter dataKey="price" fill="red" />
     </ComposedChart>
   </ResponsiveContainer>
+</div>
   )
 }
 

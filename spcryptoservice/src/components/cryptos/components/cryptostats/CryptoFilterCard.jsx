@@ -13,7 +13,7 @@ const CryptoFilterCard = () => {
     const {coins,isloading,isError}=useCryptomarkets()
 
     // filtering only few coins from the obtained data
-    let filteredCoins=coins.filter((coin)=>["BTC","XRP" ,"USDT"].includes(coin.symbol))
+    let filteredCoins=coins.filter((coin)=>["BTC","XRP" ,"USDT","USDC","LTC","AAVE"].includes(coin.symbol))
 
     // to keep the tabs active when ever user clicks on it 
     const [activeTabKey,setActiveTabkey]=useState('')
@@ -36,8 +36,62 @@ const CryptoFilterCard = () => {
     const SelectedCoin=filteredCoins.find((coin)=>coin.uuid===activeTabKey)
 
   return (
-    <div >
-      
+    <div className='container my-2 p-4  '>
+        <div className="card">
+        {
+            // spinner 
+            isloading?(
+            <div className='card-body'>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            </div>
+            // card-filter
+            ):(
+            <>
+                        <div className='card-header d-flex justify-content-between align-items-center'>
+             {
+                SelectedCoin?(
+                <div className=''>
+                    <img src={SelectedCoin.iconUrl} alt="" className='mx-2' 
+                    style={{width:"30px",height:"30px" ,borderRadius:"50%"}} />
+                    <span>{SelectedCoin.symbol}</span>
+                </div>):
+                (<><h3>Select the coin</h3></>)
+             }
+             {/* handling the Time Periods */}
+             <select class="form-select w-auto" value={selectTimePeriod} onChange={HandleTimePeriodChage}>
+               {
+                TimePeriods.map((period)=>(
+                    <option value={period} key={period}>{period}</option>
+                ))
+               }
+             </select>
+            </div>
+            {/* tabs for coins */}
+            <ul class="nav nav-tabs">
+                {
+                    filteredCoins.map((coin)=>(
+                        <>
+                         <li class="nav-item">
+                            <button 
+                            className={`nav-link ${activeTabKey===coin.uuid?"active":""}`}
+                             onClick={()=>HandleTabChange(coin.uuid)}>
+                                {coin.symbol}
+                            </button>
+                         </li>
+                        </>
+                    ))
+                }
+            </ul>
+            {/* graph content */}
+            <div className="card-body " >
+                <LineBarChart  data={history}/>
+            </div>
+            </>
+            )
+        }
+       </div>
     </div>
   )
 }
