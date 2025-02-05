@@ -1,7 +1,7 @@
 import {useGetGeneralNewsQuery} from "../../news/services/NewsServices"
 
 
-const useNewsService = (category="general") => {
+const useNewsService = (category="business") => {
    const {data,isloading,isError}=useGetGeneralNewsQuery({category})
    console.log(data)
 

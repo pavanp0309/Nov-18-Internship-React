@@ -8,7 +8,6 @@ export const store = configureStore({
     [cryptoMarketsApi.reducerPath]:cryptoMarketsApi.reducer,
     [NewsApi.reducerPath]:NewsApi.reducer,
   },
-
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(cryptoMarketsApi.middleware,NewsApi.middleware),
 })
