@@ -33,7 +33,7 @@ const Shop = () => {
     <>
      <div className="row">
       {
-        products.map((product)=><ProductCard  product={product}/>)
+        products.map((product,i)=><ProductCard  product={product} />)
       }
      </div>
     </>

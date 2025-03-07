@@ -1,0 +1,10 @@
+Write the difference between npm and npx ?
+What is package.json in a React project, and what is its purpose?
+What is package-lock.json, and why is it needed?
+What are dependencies in React? How are they different from devDependencies?
+What is the purpose of the node_modules folder in a React project?
+ What is the purpose of the public & src folder in a React project?
+What are the key features of React.js?
+What is JSX? How is it different from HTML?
+What is the Virtual DOM, and how does it improve performance?
+What is the difference between functional components and class components?

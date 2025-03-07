@@ -1,7 +1,7 @@
 {
   "name": "redux",
   "version": "1.0.0",
-  "main": "index2.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^3.1.0"
